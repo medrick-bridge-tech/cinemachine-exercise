@@ -9,12 +9,13 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float runSpeed;
-    
+    [SerializeField] private Light flashLight;
     void Update()
     {
         Walking();
         Running();
         Rotation();
+        HandleFlashLight();
     }
 
     private void Walking()
@@ -46,6 +47,14 @@ public class Player : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(0f,1f,0f,Space.Self);
+        }
+    }
+
+    private void HandleFlashLight()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            flashLight.enabled = !flashLight.enabled;
         }
         
     }
