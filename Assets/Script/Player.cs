@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float runSpeed;
     [SerializeField] private Light flashLight;
+    
     void Update()
     {
         Walking();
@@ -56,6 +58,5 @@ public class Player : MonoBehaviour
         {
             flashLight.enabled = !flashLight.enabled;
         }
-        
     }
 }
