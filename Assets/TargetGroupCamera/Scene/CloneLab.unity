@@ -168,10 +168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4a115ddde15784895c46d84c3c4828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cinemachineTargetGroup: {fileID: 1335332141}
   prefab: {fileID: 1647144725}
   target: {x: 0, y: 1, z: 0}
   radius: 10
+  cinemachineTargetGroup: {fileID: 1335332141}
+  targetWeight: 1
+  targetRadius: 1
 --- !u!1 &178840218
 GameObject:
   m_ObjectHideFlags: 3
