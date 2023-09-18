@@ -2826,7 +2826,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   runSpeed: 0
-  flashLight: {fileID: 611307792}
+  flashLights:
+  - {fileID: 611307792}
 --- !u!54 &1417384294
 Rigidbody:
   m_ObjectHideFlags: 0

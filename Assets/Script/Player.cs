@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float runSpeed;
-    [SerializeField] private Light flashLight;
+    [SerializeField] private List<Light> flashLights;
     
     void Update()
     {
@@ -44,19 +44,22 @@ public class Player : MonoBehaviour
         var view = transform.localRotation;
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(0f,-1f,0f,Space.Self);
+            transform.Rotate(0f,-0.1f,0f,Space.Self);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(0f,1f,0f,Space.Self);
+            transform.Rotate(0f,0.1f,0f,Space.Self);
         }
     }
 
     private void HandleFlashLight()
     {
-        if (Input.GetKeyDown(KeyCode.F) && flashLight != null)
+        if (Input.GetKeyDown(KeyCode.F) && flashLights.Count>0)
         {
-            flashLight.enabled = !flashLight.enabled;
+            foreach (var flashLight in flashLights)
+            {
+                flashLight.enabled = !flashLight.enabled;    
+            }
         }
     }
 }

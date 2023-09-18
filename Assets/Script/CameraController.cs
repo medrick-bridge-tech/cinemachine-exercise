@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Cinemachine;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
@@ -11,6 +12,15 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private List<CinemachineVirtualCamera> cinemachineVirtualCameras;
     private int _index = 0;
+
+    private void Awake()
+    {
+        if (cinemachineVirtualCameras.Count<1)
+        {
+            Destroy(GetComponent<CameraController>());
+        }
+    }
+
     private void Start()
     {
         cinemachineVirtualCameras[_index].gameObject.SetActive(true);
@@ -23,7 +33,7 @@ public class CameraController : MonoBehaviour
 
     private void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V) && cinemachineVirtualCameras.Count >0)
         {
             if (_index < cinemachineVirtualCameras.Count-1)
             {
